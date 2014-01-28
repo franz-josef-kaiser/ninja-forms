@@ -50,7 +50,7 @@ Ninja Forms also uses the following jQuery plugins. Their licenses can be found 
 global $wpdb, $wp_version;
 
 define("NINJA_FORMS_DIR", plugin_dir_path( __FILE__ ) );
-define("NINJA_FORMS_URL", plugins_url()."/".basename( dirname( __FILE__ ) ) );
+define("NINJA_FORMS_URL", plugin_dir_url( __FILE__ ) );
 define("NINJA_FORMS_VERSION", "2.4.2");
 define("NINJA_FORMS_TABLE_NAME", $wpdb->prefix . "ninja_forms");
 define("NINJA_FORMS_FIELDS_TABLE_NAME", $wpdb->prefix . "ninja_forms_fields");
@@ -60,63 +60,63 @@ define("NINJA_FORMS_SUBS_TABLE_NAME", $wpdb->prefix . "ninja_forms_subs");
 define("NINJA_FORMS_JS_DEBUG", false);
 
 /* Require Core Files */
-require_once( NINJA_FORMS_DIR . "/includes/database.php" );
-require_once( NINJA_FORMS_DIR . "/includes/activation.php" );
-require_once( NINJA_FORMS_DIR . "/includes/register.php" );
-require_once( NINJA_FORMS_DIR . "/includes/shortcode.php" );
-require_once( NINJA_FORMS_DIR . "/includes/widget.php" );
-require_once( NINJA_FORMS_DIR . "/includes/field-type-groups.php" );
-require_once( NINJA_FORMS_DIR . "/includes/eos.class.php" );
-require_once( NINJA_FORMS_DIR . "/includes/from-setting-check.php" );
-require_once( NINJA_FORMS_DIR . "/includes/reply-to-check.php" );
-require_once( NINJA_FORMS_DIR . "/includes/import-export.php" );
+require_once( NINJA_FORMS_DIR . "includes/database.php" );
+require_once( NINJA_FORMS_DIR . "includes/activation.php" );
+require_once( NINJA_FORMS_DIR . "includes/register.php" );
+require_once( NINJA_FORMS_DIR . "includes/shortcode.php" );
+require_once( NINJA_FORMS_DIR . "includes/widget.php" );
+require_once( NINJA_FORMS_DIR . "includes/field-type-groups.php" );
+require_once( NINJA_FORMS_DIR . "includes/eos.class.php" );
+require_once( NINJA_FORMS_DIR . "includes/from-setting-check.php" );
+require_once( NINJA_FORMS_DIR . "includes/reply-to-check.php" );
+require_once( NINJA_FORMS_DIR . "includes/import-export.php" );
 
-require_once( NINJA_FORMS_DIR . "/includes/display/scripts.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/scripts.php" );
 
 // Include Processing Functions if a form has been submitted.
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/class-ninja-forms-processing.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/class-display-loading.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/pre-process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/post-process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/save-sub.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/filter-msgs.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/error-test.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/email-admin.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/email-user.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/email-add-fields.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/attachment-csv.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/fields-pre-process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/fields-process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/fields-post-process.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/processing/req-fields-pre-process.php" );
-//require_once( NINJA_FORMS_DIR . "/includes/display/processing/term-name-filter.php" );
-//require_once( NINJA_FORMS_DIR . "/includes/display/processing/update-terms.php" );
-//require_once( NINJA_FORMS_DIR . "/includes/display/processing/attach-post-media.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/class-ninja-forms-processing.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/class-display-loading.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/pre-process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/post-process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/save-sub.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/filter-msgs.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/error-test.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/email-admin.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/email-user.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/email-add-fields.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/attachment-csv.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/fields-pre-process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/fields-process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/fields-post-process.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/processing/req-fields-pre-process.php" );
+//require_once( NINJA_FORMS_DIR . "includes/display/processing/term-name-filter.php" );
+//require_once( NINJA_FORMS_DIR . "includes/display/processing/update-terms.php" );
+//require_once( NINJA_FORMS_DIR . "includes/display/processing/attach-post-media.php" );
 
 //Display Form Functions
-require_once( NINJA_FORMS_DIR . "/includes/display/form/display-form.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/display-fields.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/response-message.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/label.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/help.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/desc.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/form-title.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/process-message.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/field-error-message.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/form-wrap.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/fields-wrap.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/required-label.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/open-form-tag.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/close-form-tag.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/hidden-fields.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/form/form-visibility.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/restore-progress.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/inside-label-hidden.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/field-type.php" );
-//require_once( NINJA_FORMS_DIR . "/includes/display/fields/list-term-filter.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/default-value-filter.php" );
-require_once( NINJA_FORMS_DIR . "/includes/display/fields/calc-field-class.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/display-form.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/display-fields.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/response-message.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/label.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/help.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/desc.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/form-title.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/process-message.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/field-error-message.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/form-wrap.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/fields-wrap.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/required-label.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/open-form-tag.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/close-form-tag.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/hidden-fields.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/form/form-visibility.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/restore-progress.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/inside-label-hidden.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/field-type.php" );
+//require_once( NINJA_FORMS_DIR . "includes/display/fields/list-term-filter.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/default-value-filter.php" );
+require_once( NINJA_FORMS_DIR . "includes/display/fields/calc-field-class.php" );
 
 /* Require Pre-Registered Tabs and their sidebars */
 
@@ -125,68 +125,68 @@ require_once( NINJA_FORMS_DIR . "/includes/display/fields/calc-field-class.php" 
 	//Require EDD autoupdate file
 	if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
 		// load our custom updater if it doesn't already exist
-		require_once(NINJA_FORMS_DIR."/includes/EDD_SL_Plugin_Updater.php");
+		require_once(NINJA_FORMS_DIR."includes/EDD_SL_Plugin_Updater.php");
 	}
 
-	require_once( NINJA_FORMS_DIR . "/includes/class-extension-updater.php" );
+	require_once( NINJA_FORMS_DIR . "includes/class-extension-updater.php" );
 
-	require_once( NINJA_FORMS_DIR . "/includes/admin/scripts.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/sidebar.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/tabs.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/post-metabox.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/scripts.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/sidebar.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/tabs.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/post-metabox.php" );
 
-	require_once( NINJA_FORMS_DIR . "/includes/admin/ajax.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/admin.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/sidebar-fields.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/display-screen-options.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/register-screen-options.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/register-screen-help.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/export-subs.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/output-tab-metabox.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/form-preview.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/ajax.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/admin.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/sidebar-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/display-screen-options.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/register-screen-options.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/register-screen-help.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/export-subs.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/output-tab-metabox.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/form-preview.php" );
 
 	//Edit Field Functions
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/edit-field.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/label.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/hr.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/req.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/custom-class.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/help.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/desc.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/li.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/remove-button.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/save-button.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/calc.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/user-info-fields.php" );
-	//require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/list-terms.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/edit-field/post-meta-values.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/edit-field.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/label.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/hr.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/req.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/custom-class.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/help.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/desc.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/li.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/remove-button.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/save-button.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/calc.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/user-info-fields.php" );
+	//require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/list-terms.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/edit-field/post-meta-values.php" );
 
 	/* * * * ninja-forms - Main Form Editing Page
 
 	/* Tabs */
 
 	/* Form List */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/form-list/form-list.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/form-list/form-list.php" );
 
 	/* Form Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/form-settings/form-settings.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/form-settings/help.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/form-settings/form-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/form-settings/help.php" );
 
 	/* Field Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/field-settings.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/empty-rte.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/edit-field-ul.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/help.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/def-fields.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/fav-fields.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/template-fields.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/layout-fields.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/user-info.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/payment-fields.php" );
-	//require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/post-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/field-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/empty-rte.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/edit-field-ul.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/help.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/def-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/fav-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/template-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/layout-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/user-info.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/payment-fields.php" );
+	//require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/field-settings/sidebars/post-fields.php" );
 
 	/* Form Preview */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms/tabs/form-preview/form-preview.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms/tabs/form-preview/form-preview.php" );
 
 
 	/* * * * ninja-forms-settings - Settings Page
@@ -194,87 +194,87 @@ require_once( NINJA_FORMS_DIR . "/includes/display/fields/calc-field-class.php" 
 	/* Tabs */
 
 	/* General Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/general-settings/general-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/general-settings/general-settings.php" );
 
 	/* Favorite Field Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/favorite-fields/favorite-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/favorite-fields/favorite-fields.php" );
 
 	/* Label Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/label-settings/label-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/label-settings/label-settings.php" );
 
 	/* Ajax Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/ajax-settings/ajax-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/ajax-settings/ajax-settings.php" );
 
 	/* License Settings */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/license-settings/license-settings.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/license-settings/license-settings.php" );
 
-	//require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-settings/tabs/conversion-test/conversion-test.php" );
+	//require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-settings/tabs/conversion-test/conversion-test.php" );
 
 	/* * * * ninja-forms-impexp - Import / Export Page
 
 	/* Tabs */
 
 	/* Import / Export Forms */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-impexp/tabs/impexp-forms/impexp-forms.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-impexp/tabs/impexp-forms/impexp-forms.php" );
 
 	/* Import / Export Fields */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-impexp/tabs/impexp-fields/impexp-fields.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-impexp/tabs/impexp-fields/impexp-fields.php" );
 
 	/* Import / Export Submissions */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-impexp/tabs/impexp-subs/impexp-subs.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-impexp/tabs/impexp-subs/impexp-subs.php" );
 
 	/* Backup / Restore */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-impexp/tabs/impexp-backup/impexp-backup.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-impexp/tabs/impexp-backup/impexp-backup.php" );
 
 	/* * * * ninja-forms-subs - Submissions Review Page
 
 	/* Tabs */
 
 	/* View Submissions */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-subs/tabs/view-subs/view-subs.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-pre-process.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-process.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-post-process.php" );
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-subs/tabs/view-subs/sidebars/select-subs.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-subs/tabs/view-subs/view-subs.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-pre-process.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-process.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-subs/tabs/view-subs/fields-post-process.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-subs/tabs/view-subs/sidebars/select-subs.php" );
 
 	/* * * ninja-forms-addons - Addons Manager Page
 
 	/* Tabs */
 
 	/* Manage Addons */
-	require_once( NINJA_FORMS_DIR . "/includes/admin/pages/ninja-forms-addons/tabs/addons/addons.php" );
+	require_once( NINJA_FORMS_DIR . "includes/admin/pages/ninja-forms-addons/tabs/addons/addons.php" );
 
 	/* System Status */
-	require_once( NINJA_FORMS_DIR . "/includes/classes/class-nf-system-status.php" );
+	require_once( NINJA_FORMS_DIR . "includes/classes/class-nf-system-status.php" );
 //}
 
 /* Require Pre-Registered Fields */
-require_once( NINJA_FORMS_DIR . "/includes/fields/textbox.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/checkbox.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/list.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/hidden.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/organizer.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/submit.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/spam.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/honeypot.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/timed-submit.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/hr.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/desc.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/textarea.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/password.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/rating.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/calc.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/country.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/tax.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/credit-card.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/textbox.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/checkbox.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/list.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/hidden.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/organizer.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/submit.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/spam.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/honeypot.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/timed-submit.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/hr.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/desc.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/textarea.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/password.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/rating.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/calc.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/country.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/tax.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/credit-card.php" );
 /*
-require_once( NINJA_FORMS_DIR . "/includes/fields/post-title.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/post-content.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/post-tags.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/post-terms.php" );
-require_once( NINJA_FORMS_DIR . "/includes/fields/post-excerpt.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/post-title.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/post-content.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/post-tags.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/post-terms.php" );
+require_once( NINJA_FORMS_DIR . "includes/fields/post-excerpt.php" );
 */
-require_once( NINJA_FORMS_DIR . "/includes/admin/save.php" );
+require_once( NINJA_FORMS_DIR . "includes/admin/save.php" );
 
 if(session_id() == '') {
 	session_start();
