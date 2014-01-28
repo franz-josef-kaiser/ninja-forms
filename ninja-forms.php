@@ -49,7 +49,7 @@ Ninja Forms also uses the following jQuery plugins. Their licenses can be found 
 
 global $wpdb, $wp_version;
 
-define("NINJA_FORMS_DIR", WP_PLUGIN_DIR."/".basename( dirname( __FILE__ ) ) );
+define("NINJA_FORMS_DIR", plugin_dir_path( __FILE__ ) );
 define("NINJA_FORMS_URL", plugins_url()."/".basename( dirname( __FILE__ ) ) );
 define("NINJA_FORMS_VERSION", "2.4.2");
 define("NINJA_FORMS_TABLE_NAME", $wpdb->prefix . "ninja_forms");
